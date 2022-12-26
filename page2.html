@@ -17,12 +17,12 @@
         return pair[1];
       }
     }
-	document.getElementById("risultato").innerHTML = pair[1];
     return false;
   }
 
   var choice = getQueryVariable("choice");
   console.log(choice); // Outputs the value of the "choice" parameter
+  document.getElementById("risultato").innerHTML = choice
 </script>
 </head>
 <body>
