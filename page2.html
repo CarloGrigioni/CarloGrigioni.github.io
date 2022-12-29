@@ -13,7 +13,8 @@
 
 <div class="container">
   <h3>Sei:</h3>
-  <h5 id="output" style="font-weight: bold;"></h5>
+  <p id="output"></p>
+  <p id="outputDescr"></p>
 </div>
 </body>
   <script>
@@ -29,9 +30,42 @@
     return false;
   }
 
-  var choice = getQueryVariable("choice");
-  document.getElementById("output").innerHTML = choice;
-</script>
+
+  var counterRosso = Number(getQueryVariable("counterRosso")) || 0;
+  var counterBianco = Number(getQueryVariable("counterBianco")) || 0;
+  var counterVerde = Number(getQueryVariable("counterVerde")) || 0;
+  var counterAzzurro = Number(getQueryVariable("counterAzzurro")) || 0;
+    var choice = getQueryVariable("choice");
+  if (choice === "rosso") {
+counterRosso++;
+} else if (choice === "verde") {
+counterVerde++;
+} else if (choice === "azzurro") {
+counterAzzurro++;
+} else if (choice === "bianco") {
+counterBianco++;
+} 
+  
+  console.log(counterRosso);
+  console.log(counterVerde);
+  console.log(counterAzzurro);
+  console.log(counterBianco);
+var nameArray = ["Madre Teresa di Calcutta", "Paolo di Tarso", "Caterina da Siena", "Francesco d'Assisi"]
+var array = [counterAzzurro, counterRosso, counterBianco, counterVerde];
+var explain = ["Di umili origini, dall'Albania si trasferisce in India diventando suora. Conosce le condizioni di estrema povertà e decide di uscire per le strade per aiutare i più poveri tra i poveri. La sua azione missionaria viene conosciuta in tutto il mondo. Quando riceve il premio Nobel per la Pace diventa un'icona mondiale, amata nell'intero pianeta", "L'Apostolo delle Genti. Ebreo con la cittadinanza romana, inizialmente persecutore dei cristiani, si converte durante un viaggio tra Gersulamenne e Damasco, dopo aver sentito la voce di Gesù. Diventa un predicatore instancabile e diffonde il Vangelo girando tra le città del mondo antico. Muore martire a Roma, decapitato. Se il cristianesimo si diffonde aldifuori del popolo ebraico lo si deve a lui.", "Ventiquattresima figlia di un tintore di Siena, sin da piccola è decisa a seguire il Signore. Rifiuta di sposarsi e si chiude in casa fino ad ottenere di poter indossare l'abito da suora domenicana. Pur senza aver studiato, scrive oltre trecento lettere a personalità importanti della sua epoca. E' lei a convincere il Papa a tornare a Roma da Avignone. E' patrona d'Italia e d'Europa", "Di famiglia benestante, trascorre una giovinezza spensierata e ricca di piaceri. In seguito alla prigionia e ad una malattia, abbandona ogni ricchezza e si fa povero, fondando l'ordine francescano, per riparare la chiesa che era in rovina. Imitatore di Cristo, predica l'amore tra gli uomini e per il creato. Nel giro di pochi anni centinaia e poi migliaia di giovani di tutta Europa scelgono di imitarlo. E' patrono d'Italia."]
+var largest = counterAzzurro;
+var largest_i = 0;
+console.log(array)
+for (i=0; i<array.length;i++){
+if (array[i] > largest){
+largest = array[i];
+largest_i = i;
+}
+}
+console.log(nameArray[largest_i])
+  document.getElementById("output").innerHTML = nameArray[largest_i];
+  document.getElementById("outputDescr").innerHTML = explain[largest_i];  
+  </script>
 </html>
 
 

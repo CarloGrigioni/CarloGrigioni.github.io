@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+  <title>Che influencer sei?</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+  <h1>La tua famiglia ?</h1>
+</div>
+
+<div class="container">
+	<form id="myForm" action="q7.html" method="get">
+		<label for="option1">
+			<input type="radio" name="choice" value="rosso" id="option1"> Benestante
+		</label>
+  <br>
+		<label for="option2">
+			<input type="radio" name="choice" value="bianco" id="option2"> Molto numerosa
+		</label>
+  <br>
+		<label for="option3">
+			<input type="radio" name="choice" value="verde" id="option3"> Genitori severi
+		</label>
+  <br>
+		<label for="option4">
+			<input type="radio" name="choice" value="azzurro" id="option4"> Di umili origini
+		</label>
+	<br>
+		<input type="hidden" id="cr" name="counterRosso"  value="">
+		<input type="hidden" id="cb" name="counterBianco"  value="">
+		<input type="hidden" id="cv" name="counterVerde"  value="">
+		<input type="hidden" id="ca" name="counterAzzurro"  value="">
+		<input type="submit" value="Continua">
+	</form>
+</div>
+</body>
+    <script>
+  function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0; i<vars.length; i++) {
+      var pair = vars[i].split("=");
+      if (pair[0] == variable) {
+        return pair[1];
+      }
+    }
+    return false;
+  }
+
+var counterRosso = getQueryVariable("counterRosso");
+var counterVerde = getQueryVariable("counterVerde");
+var counterBianco = getQueryVariable("counterBianco");
+var counterAzzurro = getQueryVariable("counterAzzurro");
+  var choice = getQueryVariable("choice");
+  if (choice === "rosso") {
+counterRosso++;
+} else if (choice === "verde") {
+counterVerde++;
+} else if (choice === "azzurro") {
+counterAzzurro++;
+} else if (choice === "bianco") {
+counterBianco++;
+}
+console.log(counterRosso);
+console.log(counterVerde);
+console.log(counterAzzurro);
+console.log(counterBianco);
+document.getElementById("cr").value = counterRosso;
+document.getElementById("cv").value = counterVerde;
+document.getElementById("ca").value = counterAzzurro;
+document.getElementById("cb").value = counterBianco;
+	</script>
+</html>
